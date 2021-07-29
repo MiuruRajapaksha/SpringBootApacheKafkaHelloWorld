@@ -10,7 +10,7 @@ public class KafkaSender {
 	@Autowired
 	private KafkaTemplate<String, String> kafkaTemplate;
 
-	String kafkaTopic = "AWSKafkaTopic";
+	String kafkaTopic = "testTopic";
 
 	public void send(String data) {
 
