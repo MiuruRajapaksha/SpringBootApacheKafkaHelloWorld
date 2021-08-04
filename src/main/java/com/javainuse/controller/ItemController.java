@@ -15,7 +15,7 @@ public class ItemController {
 
     @Autowired
     KafkaTemplate<String, Item> KafkaJsontemplate;
-    String TOPIC_NAME = "AWSKafkaTopic";
+    String TOPIC_NAME = "AWSKafkaTutorialTopic";
 
     @PostMapping(value = "/postItem",consumes = {"application/json"},produces = {"application/json"})
     public String postJsonMessage(@RequestBody Item item){
