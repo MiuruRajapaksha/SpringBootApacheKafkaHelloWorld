@@ -1,6 +1,6 @@
 package com.javainuse.config;
 
-import com.javainuse.model.Item;
+import com.javainuse.model.Message;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +17,7 @@ import java.util.Map;
 public class KafkaConfig {
 
     @Bean
-    public ProducerFactory<String, Item> producerFactory(){
+    public ProducerFactory<String, Message> producerFactory(){
         Map<String,Object> config = new HashMap<>();
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"b-2.kafkacluster.ts0w7l.c4.kafka.ap-south-1.amazonaws.com:9092");
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -26,7 +26,7 @@ public class KafkaConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, Item> kafkaTemplate(){
-        return new KafkaTemplate<String, Item>(producerFactory());
+    public KafkaTemplate<String, Message> kafkaTemplate(){
+        return new KafkaTemplate<String, Message>(producerFactory());
     }
 }
