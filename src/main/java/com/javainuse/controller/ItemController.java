@@ -22,10 +22,10 @@ public class ItemController {
     String TOPIC_NAME = "AWSKafkaTutorialTopic";
 
     @GetMapping
-    public String postJsonMessage(@RequestParam("page") int page, @RequestParam("size") int size,
-                                  @RequestParam(value = "search", required = false) String searchTerm){
+    public String postJsonMessage(@RequestParam("id") int id, @RequestParam("eventTitle") String eventTitle,
+                                  @RequestParam(value = "eventMessage", required = false) String eventMessage){
         log.info("Recieved");
-        KafkaJsontemplate.send(TOPIC_NAME,new Message(page,searchTerm,searchTerm));
+        KafkaJsontemplate.send(TOPIC_NAME,new Message(id,eventTitle,eventMessage));
         return "Message published successfully";
     }
 }
